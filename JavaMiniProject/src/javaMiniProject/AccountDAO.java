@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class DAO {
+public class AccountDAO {
 
 	Scanner sc = new Scanner(System.in);
 
@@ -55,10 +55,12 @@ public class DAO {
 	}
 
 	// 로그인
-	public void logIn() {
+	public boolean logIn() {
+		conn();
 		String Checkpw = null;
 		String name = null;
 		ResultSet rs = null;
+		boolean result = false;
 
 		System.out.print("아이디 : ");
 		String id = sc.next();
@@ -78,21 +80,30 @@ public class DAO {
 			}
 
 			if (pw.equals(Checkpw)) {
+				result = true;
 				System.out.println("로그인에 성공했습니다.");
 				System.out.println(name + "님 환영합니다! \\(=▽=)/");
 			} else {
+				result = false;
 				System.out.println("아이디 혹은 비밀번호가 다릅니다.");
+				System.out.println("");
+				
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			dbClose();
 		}
+		
+		return result;
 
 	}
 
 	// 회원 가입
 	public void signIn() {
-
+		conn();
+		
 		String id = null;
 
 		while (true) {
@@ -119,7 +130,7 @@ public class DAO {
 
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}
+			} 
 		}
 
 		System.out.print("비밀번호 : ");
@@ -145,12 +156,16 @@ public class DAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			dbClose();
 		}
 
 	}
 
 	// 회원 정보 수정
 	public void updateUser() {
+		conn();
+		
 		String sql = "UPDATE 회원가입 SET 비밀번호=?, 이름=? WHERE 아이디=?";
 
 		System.out.print("아이디 입력 : ");
@@ -176,13 +191,16 @@ public class DAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			dbClose();
 		}
 
 	}
 
 	// 회원 정보 삭제
 	public void deleteUser() {
-
+		conn();
+		
 		System.out.print("삭제할 ID 입력 : ");
 		String id = sc.next();
 
@@ -201,6 +219,8 @@ public class DAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			dbClose();
 		}
 
 	}
@@ -209,6 +229,8 @@ public class DAO {
 	
 	// 회원 정보 조회
 	public void searchMembers() {
+		conn();
+		
 		ResultSet rs = null;
 		String sql = "SELECT * FROM 회원가입";
 		try {
@@ -221,6 +243,8 @@ public class DAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			dbClose();
 		}
 
 	}
