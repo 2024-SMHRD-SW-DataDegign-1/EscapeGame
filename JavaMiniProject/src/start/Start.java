@@ -73,8 +73,8 @@ public class Start {
 			} else if (input == 4) {
 				System.out.println();
 				System.out.println("로그아웃이 되었습니다!\n");
-				//acc.account();
-				str.start();
+				acc.account();
+				//str.start();
 				break;	//break 안 넣으면 게임 시작 누르면 원래 멈춰야하는데 썅 안 멈추고 로그아웃 부분이 출력됨
 
 			}
