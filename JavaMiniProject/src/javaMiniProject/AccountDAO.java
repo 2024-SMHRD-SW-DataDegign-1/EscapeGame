@@ -20,9 +20,9 @@ public class AccountDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			String user = "hr";
-			String password = "12345";
+			String url = "jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
+			String user = "campus_24SW_DD_p1_4";
+			String password = "smhrd4";
 
 			conn = DriverManager.getConnection(url, user, password);
 
