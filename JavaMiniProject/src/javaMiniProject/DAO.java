@@ -183,7 +183,7 @@ public class DAO {
 	// 회원 정보 삭제
 	public void deleteUser() {
 
-		System.out.print("ID 입력 : ");
+		System.out.print("삭제할 ID 입력 : ");
 		String id = sc.next();
 
 		String sql = "DELETE FROM 회원가입 WHERE 아이디=?";
@@ -204,5 +204,33 @@ public class DAO {
 		}
 
 	}
+	
+	
+	
+	// 회원 정보 조회
+	public void searchMembers() {
+		ResultSet rs = null;
+		String sql = "SELECT * FROM 회원가입";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -1,0 +1,15 @@
+package javaMiniProject;
+
+import java.util.Scanner;
+
+public class SignIn{
+
+	Scanner sc = new Scanner(System.in);
+	DAO dao = new DAO();
+	public void signIn() {
+		dao.conn();
+		dao.insertUser();
+		dao.dbClose();
+	}
+
+}

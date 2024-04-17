@@ -1,0 +1,84 @@
+package javaMiniProject;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class SignIn extends DAO {
+
+	Scanner sc = new Scanner(System.in);
+
+	public void signIn() {
+
+		System.out.print("ID 입력 : ");
+		String id = sc.next();
+		System.out.print("PW 입력 : ");
+		String pw = sc.next();
+		System.out.print("이름 입력 : ");
+		String name = sc.next();
+
+
+		PreparedStatement psmt = null;
+		Connection conn = null;
+
+		try {
+			
+			try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+
+				String url = "jdbc:oracle:thin:@localhost:1521:xe";
+				String user = "hr";
+				String password = "12345";
+
+				conn = DriverManager.getConnection(url, user, password);
+				
+				if (conn != null) {
+					System.out.println("DB 연결에 성공하였습니다!! \\(=▽=)/");
+				} else {
+					System.out.println("DB 연결에 실패하였습니다.. (=▽=)...");
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			String sql = "INSERT INTO 회원가입 VALUES(?, ?, ?)";
+			
+			
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+			psmt.setString(3, name);
+
+			int row = psmt.executeUpdate();
+
+			if (row > 0) {
+				System.out.println("회원가입이 성공적으로 되었습니다! \\(=▽=)/");
+			} else {
+				System.out.println("회원가입에 실패하였습니다... (=▽=)...");
+			}
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+			
+			try {
+				if (psmt != null) {
+					psmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+	}
+
+}

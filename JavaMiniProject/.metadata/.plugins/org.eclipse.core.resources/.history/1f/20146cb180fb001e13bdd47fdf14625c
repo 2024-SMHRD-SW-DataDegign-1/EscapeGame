@@ -1,0 +1,125 @@
+package javaMiniProject;
+
+public class SignIn {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		// 사용자 입출력 구간
+		System.out.print("ID 입력 : ");
+		String id = sc.next();
+		System.out.print("PW 입력 : ");
+		String pw = sc.next();
+		System.out.print("이름 입력 : ");
+		String name = sc.next();
+		System.out.print("나이 입력 : ");
+		int age = sc.nextInt();
+
+		// JDBC(Java DataBase Connectivity)
+
+		PreparedStatement psmt = null;
+		Connection conn = null;
+
+		try {
+
+			// (순서대로 진행)
+
+			// 1. 드라이버 로딩
+			// JDBC 드라이버란 (=▽a=)?
+			// : Java에서 제공해주는 인터페이스들을 데이터베이스 회사에서
+			// 상속받아서 로직을 구현한 클래스 파일들의 모음
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			// ---> DB를 사용하려면, **반드시** 프로젝트에 jar 파일 넣어주기
+
+			// jar 피일 등록 방법
+			// 프로젝트 우클릭 -> build path -> configure build path
+			// -> libraries 탭 선택 -> class path 선택
+			// -> 우측에 add external jars 버튼 선택
+			// -> 원하는 jar 파일 경로 찾아서 선택 -> apply and close
+			// (경로 : C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib)
+			// (Oracle과 함께 다운로드 받아졌음)
+
+			// 2. 데이터베이스 연결
+			// 준비물 3가지 필요 ~(=▽=~)
+			// 1) 연결 경로
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			// 2) user name
+			String user = "hr";
+			// 3) password
+			String password = "12345";
+
+			conn = DriverManager.getConnection(url, user, password);
+			// Connection이란 └(=▽=)┐!
+			// : 데이터베이스에 접속하기 위한 모든 메소드를 가진 인터페이스
+			// --> 앞으로 DB와 하는 모든 통신은 conn을 통해서만 이루어짐
+
+			// DB 연결 성공/실패 판별
+			if (conn != null) {
+				System.out.println("DB 연결에 성공하였습니다!! \\(=▽=)/");
+			} else {
+				System.out.println("DB 연결에 실패하였습니다.. (=▽=)...");
+			}
+
+			// 3. Query문(SQL구문) 전송
+			// 3-1) SQL문 작성
+			String sql = "INSERT INTO DATAMEMBER VALUES(?, ?, ?, ?)";
+			// ? 인자
+			// : 사용자로부터 어떤 데이터가 들어올지 모를 때 사용
+			// : 지정한 데이터 공간만큼 비워놓고 실행하기 전까지 대기
+
+			// sql을 수레에 담기
+			psmt = conn.prepareStatement(sql);
+
+			// ?인자 채우기(반드시 쿼리문 실행 전에 할 것)
+			// 데이터 바인딩
+			// sql이 담긴 수레(=psmt)에 기능이 있음
+			psmt.setString(1, id); // -> index는 1부터 시작
+			psmt.setString(2, pw);
+			psmt.setString(3, name);
+			psmt.setInt(4, age);
+
+			// 4. sql문 실행
+			// sql이 담긴 수레(=psmt)에 기능이 있음
+			int row = psmt.executeUpdate(); // -> 실행
+			// executeUpdate(); => insert, delete, update에만 사용
+
+			// 5. 결과를 이용한 작업 처리
+			// : 사용자에게 회원가입에 성공했는지 실패했는지 보여주는 작업
+			if (row > 0) {
+				System.out.println("회원가입이 성공적으로 되었습니다! \\(=▽=)/");
+			} else {
+				System.out.println("회원가입에 실패하였습니다... (=▽=)...");
+			}
+
+		} catch (Exception e) {
+			// -> 모든 예외 상황은 Exception을 상속 받는다
+			// ---> Exception e = new ClassNotFoundException();
+			// └> 업캐스팅이 일어난다.
+			e.printStackTrace();
+			// -> 예외 상황이 왜 발생했고, 어디서 문제가 났는지 출력해주는 코드
+			// 개발할 때 사용하지만, 배포할 때는 삭제하는 게 좋음
+		} finally {
+			// 6. DB 연결 종료 --> 자원 반납
+			// try에서 예외 상황이 생겨 catch에 가더라도, finally는 반드시 실행
+			// -> 보안 상 통로를 닫는 건 중요하므로, 예외 상황이 생겨 Quary문을 실행하지 않았더라도, 자원 반납은 반드시 수행.
+
+			// *** 자원 반납은 항상 사용한 순서의 반대로 ***
+			try {
+				// 6-1) 수레 반납
+				if (psmt != null) {
+					psmt.close();
+				}
+				// 6-2) 통로 차단
+				if (conn != null) {
+					conn.close();
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+
+	}
+
+}

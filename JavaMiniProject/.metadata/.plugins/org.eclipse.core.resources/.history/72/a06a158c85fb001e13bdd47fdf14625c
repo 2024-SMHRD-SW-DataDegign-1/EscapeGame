@@ -1,0 +1,41 @@
+package javaMiniProject;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		SignIn sgn = new SignIn();
+		
+		System.out.println("이 게임이 처음이시라면? >> [1]회원가입");
+		System.out.println("이미 회원가입이 되어있으시다면? >> [2]로그인");
+
+		while (true) {
+			System.out.print(">> ");
+			int choice = sc.nextInt();
+			if (choice == 1) {
+				sgn.signIn();
+				break;
+			} else if (choice == 2) {
+
+				break;
+			} else {
+				System.out.println("다시 선택해주세요.");
+				continue;
+			}
+		}
+		
+		System.out.println(" ");
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+}

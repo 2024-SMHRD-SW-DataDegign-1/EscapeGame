@@ -1,0 +1,16 @@
+package javaMiniProject;
+
+import java.util.Scanner;
+
+public class UpdateInfo {
+	
+	Scanner sc = new Scanner(System.in);
+	DAO dao = new DAO();
+
+	public void updateInfo() {
+		dao.conn();
+		dao.insertUser();
+		dao.dbClose();
+	}
+
+}
