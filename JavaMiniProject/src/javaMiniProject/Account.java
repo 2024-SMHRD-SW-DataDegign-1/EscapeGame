@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Account {
 
-	public void account() {
+	public String account() {
 		Scanner sc = new Scanner(System.in);
 		AccountDAO dao = new AccountDAO();
 		GameTools gt = new GameTools();
@@ -68,7 +68,7 @@ public class Account {
 				continue;
 			}
 		}
-
+		return id;
 	}
 
 }
