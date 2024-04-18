@@ -4,6 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
+import chapter.Chap0;
+
 public class LockDoor {
 
 	public void lockDoor() {
@@ -15,6 +17,7 @@ public class LockDoor {
 		int reward4 = ran.nextInt(9)+1;
 
 		Scanner sc = new Scanner(System.in);
+		Chap0 c0 = new Chap0();
 
 		while (true) {
 			try {
@@ -22,8 +25,9 @@ public class LockDoor {
 				System.out.print(" [2] 잠긴문이 보인다. 가보자! ");
 				System.out.print(">> ");
 				int choice = sc.nextInt();
+				System.out.println();
 				if (choice == 1) {
-
+					c0.choo0();
 				} else if (choice == 2) {
 					System.out.println("===== 문이 잠겨있다 =====");
 					
