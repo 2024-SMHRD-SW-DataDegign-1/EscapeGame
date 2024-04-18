@@ -13,7 +13,7 @@ public class Chap2 {
 			
 			// if choose 2번선택지...
 			System.out.println();
-			System.out.println("이 근처에 있는 PC는 전원이 꺼져있다. 콘센트가 있으나 이중 2개는 고장난 것이고 나머지 1개만이 전원이 들어오는 구역이다.");
+			System.out.println("이 근처에 있는 PC는 전원이 꺼져있다. 콘센트가 있ㄴ으나 이중 2개는 고장난 것이고 나머지 1개만이 전원이 들어오는 구역이다.");
 			System.out.println(" ");
 			// 선택지는 총 3개이며 A, B, C 콘센트가 있으며 이중에 정답은 예시로 C 콘센트로 한다. ++ 나중에 수정본에선 random 이용해서
 			
