@@ -130,27 +130,26 @@ public class AccountDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		
+		String sql2 = "INSERT INTO TB_SAVEP VALUES (?, ?)";
+		try {
+			psmt = dao.conn.prepareStatement(sql2);
+			psmt.setString(1, id);
+			psmt.setString(2, null);
+
+			psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			dao.dbClose();
 		}
 
+
 	}
 
-//		String sql2 = "INSERT INTO TB_SAVEP VALUES (?, ?)";
-//		try {
-//			dao.conn();
-//			psmt = dao.conn.prepareStatement(sql2);
-//			psmt.setString(1, id);
-//			psmt.setString(2, null);
-//
-//			psmt.executeUpdate();
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			dao.dbClose();
-//		}
-//
+
 
 	// 회원 정보 수정
 	public void updateUser() {
