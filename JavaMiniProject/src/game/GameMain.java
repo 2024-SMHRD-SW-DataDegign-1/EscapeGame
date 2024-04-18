@@ -6,7 +6,11 @@ public class GameMain {
 		// TODO Auto-generated method stub
 		
 		Game1 game1 = new Game1();
-		game1.g1();
+		Game2 game2 = new Game2();
+		//game1.g1();
+		game2.g2();
+		
+		
 	}
 
 }

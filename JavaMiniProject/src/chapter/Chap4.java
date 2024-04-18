@@ -15,7 +15,7 @@ public class Chap4 {
 			Start str = new Start();
 
 			// if choose 4번선택지...
-			// 임시용 게임오버 표현 (변경 예정)
+			// 임시용 게임오버 표현 (변경 예정)	 이걸 칠판으르 해서 지운다? 지우지 않는다 -> 지우지 않으면 게임 오버
 			System.out.println("해당 모니터로 갔으나 책상 위에 정체불명의 초코바가 있다. 어떻게 할까?\n");
 			System.out.print("1. 먹는다\t2. 먹지 않는다 >> ");
 
