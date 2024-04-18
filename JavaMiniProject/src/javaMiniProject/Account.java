@@ -68,8 +68,7 @@ public class Account {
 				continue;
 			}
 		}
-		
-		sc.close();
+
 	}
 
 }

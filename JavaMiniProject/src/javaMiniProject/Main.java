@@ -18,7 +18,7 @@ public class Main {
 		MainChoice mc = new MainChoice();
 
 		acc.account();
-		
+
 		str.start();
 		
 		mc.searchClue();
