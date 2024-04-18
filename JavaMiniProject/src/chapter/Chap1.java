@@ -2,12 +2,15 @@ package chapter;
 
 import java.util.Scanner;
 
+import game.Game1;
+
 public class Chap1 {
 
 	public void choo1() {
 
 		Scanner sc = new Scanner(System.in);
 		Chap0 c0 = new Chap0();
+		Game1 game1 = new Game1();
 
 		while (true) {
 			// if choose 1번선택지...
@@ -26,8 +29,9 @@ public class Chap1 {
 				System.out.println();
 				System.out.println("정답이다. 라고 생각한 순간 컴퓨터가 열렸다.");
 				System.out.println(" ");
-				System.out.println("1번 문제 출력"); // 그 후 1번 문제 메소드 불러오기 아님 문제 출력하던가
-				System.out.println("문제 다 풀면 그 부분 세이브포인트 변수에 담고... 다시 선택지 둘러보기?\n");
+				game1.g1();
+				//System.out.println("1번 문제 출력"); // 그 후 1번 문제 메소드 불러오기 아님 문제 출력하던가
+				//System.out.println("문제 다 풀면 그 부분 세이브포인트 변수에 담고... 다시 선택지 둘러보기?\n");
 				c0.choo0();
 				break;
 
