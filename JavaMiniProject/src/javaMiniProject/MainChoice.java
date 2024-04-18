@@ -7,60 +7,52 @@ import java.util.Scanner;
 
 public class MainChoice {
 
-	public void searchClue() {
-		
+	public void searchClue(String id) {
+
 		Scanner sc = new Scanner(System.in);
 
 		// 로그인 유저 아이디 저장
-		String id = "wnstj412";
 
 		DAO dao = new DAO();
 		PreparedStatement psmt = null;
+		ArrayList<String> al = new ArrayList<String>();
 		String cp = "";
 		String tempstr = "";
 
 		while (true) {
 
-			System.out.print("[1]처음부터 [2]이어하기 >> ");
-			int input = sc.nextInt();
+			dao.conn();
 
-			ArrayList<String> al = new ArrayList<String>();
+			ResultSet rs = null;
+			String sql = "SELECT USER_SP FROM TB_SAVEP WHERE USER_ID = ?";
 
-			if (input == 1) {
-				al.add("칠판");
-				al.add("간식통");
-				al.add("내PC");
-				al.add("선생님PC");
-				al.add("뜬금없이놓여있는어항");
+			try {
 
-			} else if (input == 2) {
+				psmt = dao.conn.prepareStatement(sql);
 
-				dao.conn();
-
-				ResultSet rs = null;
-				String sql = "SELECT USER_SP FROM TB_SAVEP WHERE USER_ID = ?";
-
-				try {
-
-					psmt = dao.conn.prepareStatement(sql);
-
-					psmt.setString(1, id);
-					rs = psmt.executeQuery();
-
-					if (rs.next()) {
+				psmt.setString(1, id);
+				rs = psmt.executeQuery();
+				if (rs.next()) {
+					if (rs.getString(1) != (null)) {
+						System.out.println("여기");
 						tempstr = rs.getString(1);
 						String[] splitValues = tempstr.split(",");
 						for (String value : splitValues) {
 							al.add(value);
 						}
+					} else if (rs.getString(1) == (null)) {
+						al.add("칠판");
+						al.add("간식통");
+						al.add("내PC");
+						al.add("선생님PC");
+						al.add("뜬금없이놓여있는어항");
 					}
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally {
-					dao.dbClose();
 				}
 
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				dao.dbClose();
 			}
 
 			while (true) {
@@ -92,20 +84,14 @@ public class MainChoice {
 				// 정답 선택지 삭제
 				al.remove(correct - 1);
 
-				System.out.println(cp);
-
 				// 선택지 백업
+				cp = "";
 				for (int i = 0; i < al.size(); i++) {
 					cp += al.get(i) + ",";
 				}
 
-				System.out.println(cp);
-				System.out.println(id);
-
 				try {
-					String sql = "UPDATE TB_SAVEP SET USER_SP = ? WHERE USER_ID=?";
-					dao.conn();
-
+					sql = "UPDATE TB_SAVEP SET USER_SP = ? WHERE USER_ID=?";
 					dao.conn();
 
 					psmt = dao.conn.prepareStatement(sql);
@@ -120,7 +106,6 @@ public class MainChoice {
 				} finally {
 					dao.dbClose();
 				}
-				break;
 			}
 		}
 	}

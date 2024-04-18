@@ -4,22 +4,26 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+
 import chapter.Chap0;
+import start.RecordDAO;
 import start.Start;
 
 public class LockDoor {
 
-	public void lockDoor() {
+	public void lockDoor(String id) {
+		
 
 		Random ran = new Random();
 		int reward1 = ran.nextInt(9) + 1;
 		int reward2 = ran.nextInt(9) + 1;
 		int reward3 = ran.nextInt(9) + 1;
 		int reward4 = ran.nextInt(9) + 1;
-		System.out.println(reward1);
-		System.out.println(reward2);
-		System.out.println(reward3);
-		System.out.println(reward4);
+//		System.out.println(reward1);
+//		System.out.println(reward2);
+//		System.out.println(reward3);
+//		System.out.println(reward4);
 		
 		Start str = new Start();
 
@@ -30,13 +34,14 @@ public class LockDoor {
 
 		while (true) {
 			try {
-				System.out.print(" [1] 수상곳이 보인다. 둘러보자! ");
-				System.out.print(" [2] 잠긴문이 보인다. 가보자! ");
-				System.out.print(">> ");
+				System.out.println("[1] 수상한 곳을 찾아본다.");
+				System.out.println("[2] 잠긴 문을 열어본다.");
+				System.out.print("나의 선택은? >> ");
 				int choice = sc.nextInt();
 				System.out.println();
 				if (choice == 1) {
 					
+					mc.searchClue(id);
 				} else if (choice == 2) {
 					System.out.println("===== 문이 잠겨있다 =====");
 

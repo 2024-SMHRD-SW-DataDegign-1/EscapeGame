@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import start.Start;
+import start.StartMain;
 
 public class Main {
 
@@ -16,13 +17,14 @@ public class Main {
 		Account acc = new Account();
 		Start str = new Start();
 		
-		LockDoor lb = new LockDoor();
+		MainChoice mc = new MainChoice();
+		StartMain stM = new StartMain();
 
-		acc.account();
+		String id = acc.account();
 
-		str.start();
+		stM.gameStart(id);
 
-		lb.lockDoor();
+
 
 	}
 

@@ -6,7 +6,7 @@ import javaMiniProject.LockDoor;
 
 public class StartMain {
 
-	public static void main(String[] args) {
+	public void gameStart(String string) {
 
 		Start str = new Start();
 
@@ -16,7 +16,7 @@ public class StartMain {
 
 		str.start();
 
-		ld.lockDoor();
+		ld.lockDoor(string);
 
 	}
 
