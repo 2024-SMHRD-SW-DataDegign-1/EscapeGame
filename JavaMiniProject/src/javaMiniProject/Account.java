@@ -25,7 +25,8 @@ public class Account {
 					System.out.println(" ");
 					continue;
 				} else if (choice == 2) {
-					if (dao.logIn()!=null) {
+					id = dao.logIn();
+					if (id!=null) {
 						break;
 					} else {
 						continue;
@@ -67,8 +68,7 @@ public class Account {
 				continue;
 			}
 		}
-		id = dao.logIn();
-		sc.close();
+
 	}
 
 }
