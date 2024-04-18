@@ -2,6 +2,8 @@ package chapter;
 
 import java.util.Scanner;
 
+import start.Start;
+
 public class Chap4 {
 
 	public void choo4() {
@@ -10,6 +12,7 @@ public class Chap4 {
 
 			Scanner sc = new Scanner(System.in);
 			Chap0 c0 = new Chap0();
+			Start str = new Start();
 
 			// if choose 4번선택지...
 			// 임시용 게임오버 표현 (변경 예정)
@@ -25,7 +28,9 @@ public class Chap4 {
 			if (select == 1) {
 				System.out.println();
 				System.out.println("초코바를 먹자 마자 질식으로 쓰러졌다.");
-				System.out.print("===== GAME OVER =====");
+				System.out.print("===== GAME OVER =====\n");
+				str.start();	// 다시 시작 하는 부분임!!
+				
 				break;
 				// 게임 오버 문구 출력 후 바로 메인 메뉴로 이동
 			} else if (select == 2) {
