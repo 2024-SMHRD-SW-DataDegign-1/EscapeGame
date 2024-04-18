@@ -1,11 +1,18 @@
 package javaMiniProject;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class LockDoor {
 
 	public void lockDoor() {
+		
+		Random ran = new Random();
+		int reward1 = ran.nextInt(9)+1;
+		int reward2 = ran.nextInt(9)+1;
+		int reward3 = ran.nextInt(9)+1;
+		int reward4 = ran.nextInt(9)+1;
 
 		Scanner sc = new Scanner(System.in);
 
