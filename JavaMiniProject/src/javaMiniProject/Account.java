@@ -11,12 +11,14 @@ public class Account {
 		GameTools gt = new GameTools();
 
 		while (true) {
-			System.out.println("이 게임이 처음이시라면? >> [1]회원가입하기");
-			System.out.println("이미 회원가입이 되어있으시다면? >> [2]로그인하기");
-			System.out.println("혹은 >> [3]종료하기");
+			System.out.println("이 게임이 처음이시라면?	>> [1] 회원가입");
+			System.out.println("회원가입이 되어있으시다면?	>> [2] 로그인");
+			System.out.println("종료하시겠습니까? 		>> [3] 종료");
+
 			try {
 				System.out.print(">> ");
 				int choice = sc.nextInt();
+
 				if (choice == 1) {
 					dao.signIn();
 					System.out.println(" ");
@@ -36,14 +38,18 @@ public class Account {
 					System.out.println("관리자 페이지");
 
 					while (true) {
-						System.out.println("[1]회원 정보 조회 [2]회원 정보 삭제 [3]종료");
+						System.out.println("[1]회원 정보 조회  [2]회원 정보 수정 [3]회원 정보 삭제  [4]종료");
 						System.out.print(">> ");
 						int adminChoice = sc.nextInt();
+						
 						if (adminChoice == 1) {
 							dao.searchMembers();
 						} else if (adminChoice == 2) {
+							dao.updateUser();
+						} else if (adminChoice == 3) {
 							dao.deleteUser();
-						} else {
+						}
+						else {
 							System.out.println(" ");
 							break;
 						}
