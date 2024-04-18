@@ -54,6 +54,7 @@ public class AccountDAO {
 				System.out.println();
 				System.out.println("로그인에 성공했습니다.");
 				System.out.println(name + "님 환영합니다! \\(=▽=)/");
+				// 이 부분에다가 저장하면 되려나
 				str.start();
 
 			} else {
