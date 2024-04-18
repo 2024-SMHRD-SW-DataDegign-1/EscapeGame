@@ -7,8 +7,8 @@ public class GameMain {
 		
 		Game1 game1 = new Game1();
 		Game2 game2 = new Game2();
-		//game1.g1();
-		game2.g2();
+		game1.g1();
+		//game2.g2();
 		
 		
 	}
