@@ -11,6 +11,7 @@ public class Start {
 		StartDAO sdao = new StartDAO();
 		Account acc = new Account();
 		Start str = new Start();
+		int rec = 0;
 		RecordDAO rdao = new RecordDAO();	// 본게임이랑 연결 부분
 		Chap0 c0 = new Chap0(); // 이거 잠깐 연결해보려고 하는 거임
 
@@ -23,8 +24,7 @@ public class Start {
 		while (true) {
 			if (input == 1) {
 				System.out.println();
-				System.out.println("게임 시작 누르면 게임 기록 물어보는 부분입니다~"+ "\n");
-				rdao.record();	//게임 기록 물어보는 메소드
+				// rdao.record();	//게임 기록 물어보는 메소드
 				//c0.choo0(); //이건 바로 선택지 가게 해본 거.. 잠깐 테스트 해봤습니다
 				break;
 			} else if (input == 2) {
@@ -83,6 +83,7 @@ public class Start {
 			}
 
 		}
+
 	}
 
 }
