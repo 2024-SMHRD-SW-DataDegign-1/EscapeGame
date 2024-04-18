@@ -9,6 +9,7 @@ public class Account {
 		Scanner sc = new Scanner(System.in);
 		AccountDAO dao = new AccountDAO();
 		GameTools gt = new GameTools();
+		String id = null;
 
 		while (true) {
 			System.out.println("이 게임이 처음이시라면?	>> [1] 회원가입");
@@ -24,8 +25,7 @@ public class Account {
 					System.out.println(" ");
 					continue;
 				} else if (choice == 2) {
-					boolean result = dao.logIn();
-					if (result) {
+					if (dao.logIn()!=null) {
 						break;
 					} else {
 						continue;
@@ -67,6 +67,7 @@ public class Account {
 				continue;
 			}
 		}
+		id = dao.logIn();
 		sc.close();
 	}
 
