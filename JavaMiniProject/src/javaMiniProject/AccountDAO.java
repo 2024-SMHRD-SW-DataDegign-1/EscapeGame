@@ -10,53 +10,14 @@ import java.util.Scanner;
 public class AccountDAO {
 
 	Scanner sc = new Scanner(System.in);
-
+	DAO dao = new DAO();
+	
 	Connection conn = null;
 	PreparedStatement psmt = null;
 
-	// 연결
-	public void conn() {
-		System.out.println(" ");
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			String url = "jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
-			String user = "campus_24SW_DD_p1_4";
-			String password = "smhrd4";
-
-			conn = DriverManager.getConnection(url, user, password);
-
-			// 테스트용. 배포 시 삭제
-//			if (conn != null) {
-//				System.out.println("DB 연결에 성공하였습니다!! \\(=▽=)/");
-//				System.out.println(" ");
-//			} else {
-//				System.out.println("DB 연결에 실패하였습니다.. (=▽=)...");
-//				System.out.println(" ");
-//			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	// 닫기
-	public void dbClose() {
-		try {
-			if (psmt != null) {
-				psmt.close();
-			}
-			if (conn != null) {
-				conn.close();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
 	// 로그인
 	public boolean logIn() {
-		conn();
+		dao.conn();
 		String Checkpw = null;
 		String name = null;
 		ResultSet rs = null;
@@ -69,7 +30,7 @@ public class AccountDAO {
 
 		try {
 			String sql = "SELECT 비밀번호, 이름 FROM 회원가입 WHERE 아이디=?";
-			psmt = conn.prepareStatement(sql);
+			psmt = dao.conn.prepareStatement(sql);
 			psmt.setString(1, id);
 
 			rs = psmt.executeQuery();
@@ -93,7 +54,7 @@ public class AccountDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			dbClose();
+			dao.dbClose();
 		}
 		
 		return result;
@@ -102,7 +63,7 @@ public class AccountDAO {
 
 	// 회원 가입
 	public void signIn() {
-		conn();
+		dao.conn();
 		
 		String id = null;
 
@@ -157,14 +118,14 @@ public class AccountDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			dbClose();
+			dao.dbClose();
 		}
 
 	}
 
 	// 회원 정보 수정
 	public void updateUser() {
-		conn();
+		dao.conn();
 		
 		String sql = "UPDATE 회원가입 SET 비밀번호=?, 이름=? WHERE 아이디=?";
 
@@ -192,14 +153,14 @@ public class AccountDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			dbClose();
+			dao.dbClose();
 		}
 
 	}
 
 	// 회원 정보 삭제
 	public void deleteUser() {
-		conn();
+		dao.conn();
 		
 		System.out.print("삭제할 ID 입력 : ");
 		String id = sc.next();
@@ -220,7 +181,7 @@ public class AccountDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			dbClose();
+			dao.dbClose();
 		}
 
 	}
@@ -229,7 +190,7 @@ public class AccountDAO {
 	
 	// 회원 정보 조회
 	public void searchMembers() {
-		conn();
+		dao.conn();
 		
 		ResultSet rs = null;
 		String sql = "SELECT * FROM 회원가입";
@@ -244,7 +205,7 @@ public class AccountDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			dbClose();
+			dao.dbClose();
 		}
 
 	}
