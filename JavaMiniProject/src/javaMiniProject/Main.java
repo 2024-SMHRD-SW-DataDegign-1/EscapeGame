@@ -22,12 +22,14 @@ public class Main {
 		PreparedStatement psmt = null;
 		String cp = "";
 		String tempstr = "";
-		ArrayList<String> al = new ArrayList<String>();
+		
 
 		while (true) {
 
 			System.out.print("[1]처음부터 [2]이어하기 >> ");
 			int input = sc.nextInt();
+			
+			ArrayList<String> al = new ArrayList<String>();
 
 			if (input == 1) {
 				al.add("칠판");
@@ -106,52 +108,24 @@ public class Main {
 				System.out.println(id);
 
 				try {
-					System.out.println("try 실행");
 					String sql = "UPDATE TB_SAVEP SET USER_SP = ? WHERE USER_ID=?";
 					dao.conn();
-
-					ResultSet rs = null;
-					String sql2 = "SELECT * FROM TB_SAVEP";
-					try {
-						psmt = dao.conn.prepareStatement(sql2);
-						rs = psmt.executeQuery();
-
-						while (rs.next()) {
-							System.out.println(rs.getString(1) + "\t" + rs.getString(2));
-						}
-
-					} catch (Exception e) {
-						e.printStackTrace();
-					} finally {
-						dao.dbClose();
-					}
 					
 					dao.conn();
-					System.out.println("1");
+
 					psmt = dao.conn.prepareStatement(sql);
-					System.out.println("2");
+					
 					psmt.setString(1, cp);
-					System.out.println("3");
 					psmt.setString(2, id);
-					System.out.println("4");
-					
-					
-					System.out.println(cp);
-					System.out.println(id);
-					int raw = psmt.executeUpdate();
-					System.out.println("5");
-					
-					if (raw >0) {
-						System.out.println("성공");
-					} else {
-						System.out.println("실패");
-					}
+
+
+					psmt.executeUpdate();
+
 
 				} catch (Exception e) {
 					e.printStackTrace();
 				} finally {
 					dao.dbClose();
-					System.out.println("fianlly실행");
 				}
 				break;
 			}
