@@ -1,7 +1,6 @@
 package javaMiniProject;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,13 +18,9 @@ public class AccountDAO {
 
 	// 로그인
 	public boolean logIn() {
-<<<<<<< HEAD
+
 		dao.conn();
-=======
-		
-		conn();
-		
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-SW-DataDegign-1/EscapeGame
+
 		String Checkpw = null;
 		String name = null;
 		ResultSet rs = null;
@@ -37,13 +32,10 @@ public class AccountDAO {
 		String pw = sc.next();
 
 		try {
-<<<<<<< HEAD
-			String sql = "SELECT 비밀번호, 이름 FROM 회원가입 WHERE 아이디=?";
-			psmt = dao.conn.prepareStatement(sql);
-=======
+
 			String sql = "SELECT USER_PW, USER_NM FROM TB_USER WHERE USER_ID=?";
-			psmt = conn.prepareStatement(sql);
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-SW-DataDegign-1/EscapeGame
+			psmt = dao.conn.prepareStatement(sql);
+
 			psmt.setString(1, id);
 
 			rs = psmt.executeQuery();
@@ -79,12 +71,8 @@ public class AccountDAO {
 	
 	// 회원 가입
 	public void signIn() {
-<<<<<<< HEAD
-		dao.conn();
-=======
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-SW-DataDegign-1/EscapeGame
 		
-		conn();
+		dao.conn();
 
 		String id = null;
 
@@ -147,13 +135,8 @@ public class AccountDAO {
 
 	// 회원 정보 수정
 	public void updateUser() {
-<<<<<<< HEAD
+
 		dao.conn();
-		
-		String sql = "UPDATE 회원가입 SET 비밀번호=?, 이름=? WHERE 아이디=?";
-=======
-		conn();
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-SW-DataDegign-1/EscapeGame
 
 		String sql = "UPDATE TB_USER SET USER_NM=?,USER_ID=?, USER_PW=? WHERE USER_ID=?";
 
@@ -194,13 +177,9 @@ public class AccountDAO {
 
 	// 회원 정보 삭제
 	public void deleteUser() {
-<<<<<<< HEAD
-		dao.conn();
-		
-=======
-		conn();
 
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-SW-DataDegign-1/EscapeGame
+		dao.conn();
+
 		System.out.print("삭제할 ID 입력 : ");
 		String id = sc.next();
 
@@ -227,13 +206,9 @@ public class AccountDAO {
 
 	// 회원 정보 조회
 	public void searchMembers() {
-<<<<<<< HEAD
+
 		dao.conn();
 		
-=======
-		conn();
-
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-SW-DataDegign-1/EscapeGame
 		ResultSet rs = null;
 		String sql = "SELECT * FROM TB_USER";
 		try {
