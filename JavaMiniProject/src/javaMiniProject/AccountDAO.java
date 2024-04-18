@@ -12,7 +12,7 @@ public class AccountDAO {
 
 	Scanner sc = new Scanner(System.in);
 	DAO dao = new DAO();
-	
+
 	PreparedStatement psmt = null;
 	boolean result = false;
 
@@ -25,14 +25,13 @@ public class AccountDAO {
 		String name = null;
 		ResultSet rs = null;
 
-
 		System.out.print("아이디 : ");
 		String id = sc.next();
 		System.out.print("비밀번호 : ");
 		String pw = sc.next();
 
 		try {
-			
+
 			String sql = "SELECT USER_PW, USER_NM FROM TB_USER WHERE USER_ID=?";
 			psmt = dao.conn.prepareStatement(sql);
 
@@ -45,18 +44,18 @@ public class AccountDAO {
 				Checkpw = rs.getString(1);
 				name = rs.getString(2);
 			}
-			
+
 			if (id != null) {
 				result = true;
 			}
-			
+
 			if (pw.equals(Checkpw)) {
 				result = true;
 				System.out.println();
 				System.out.println("로그인에 성공했습니다.");
 				System.out.println(name + "님 환영합니다! \\(=▽=)/");
 				str.start();
-				
+
 			} else {
 				result = false;
 				System.out.println("아이디 혹은 비밀번호가 다릅니다.");
@@ -72,10 +71,9 @@ public class AccountDAO {
 		return id;
 	}
 
-	
 	// 회원 가입
-public void signIn() {
-		
+	public void signIn() {
+
 		dao.conn();
 
 		String id = null;
@@ -123,8 +121,8 @@ public void signIn() {
 			int row = psmt.executeUpdate();
 
 			if (row > 0) {
-				System.out.println( );
-				System.out.println(name+"님의 회원가입이 성공적으로 되었습니다! \\(=▽=)/");
+				System.out.println();
+				System.out.println(name + "님의 회원가입이 성공적으로 되었습니다! \\(=▽=)/");
 			} else {
 				System.out.println("회원가입에 실패하였습니다... (=▽=)...");
 			}
@@ -136,8 +134,7 @@ public void signIn() {
 		}
 
 	}
-		
-		
+
 //		String sql2 = "INSERT INTO TB_SAVEP VALUES (?, ?)";
 //		try {
 //			dao.conn();
@@ -161,7 +158,7 @@ public void signIn() {
 
 		String sql = "UPDATE TB_USER SET USER_NM=?,USER_ID=?, USER_PW=? WHERE USER_ID=?";
 
-		System.out.print("현재 아이디 입력 : " );
+		System.out.print("현재 아이디 입력 : ");
 		String inputId = sc.next();
 		System.out.println();
 		System.out.print("변경할 아이디 : ");
@@ -172,7 +169,7 @@ public void signIn() {
 		String name = sc.next();
 
 		int row = 0;
-		
+
 		try {
 			psmt = dao.conn.prepareStatement(sql);
 			psmt.setString(1, name);
@@ -183,7 +180,7 @@ public void signIn() {
 			row = psmt.executeUpdate();
 
 			if (row > 0) {
-				System.out.println("관리자의 권한으로 " + name+"님의 회원 정보 수정이 성공적으로 되었습니다! \\(=▽=)/");
+				System.out.println("관리자의 권한으로 " + name + "님의 회원 정보 수정이 성공적으로 되었습니다! \\(=▽=)/");
 			} else {
 				System.out.println("회원 정보 수정에 실패하였습니다... (=▽=)...");
 			}
@@ -229,7 +226,7 @@ public void signIn() {
 	public void searchMembers() {
 
 		dao.conn();
-		
+
 		ResultSet rs = null;
 		String sql = "SELECT * FROM TB_USER";
 		try {
