@@ -14,6 +14,7 @@ public class Chap0 {
 		Chap5 c5 = new Chap5();
 
 		System.out.println("===== 선택지 둘러보기 =====\n");
+		System.out.println("[1] ");
 		System.out.print("어디로 둘러볼까? >> ");
 		int choose = sc.nextInt();
 		System.out.println();
