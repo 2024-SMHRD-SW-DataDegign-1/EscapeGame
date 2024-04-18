@@ -14,16 +14,17 @@ public class AccountDAO {
 	DAO dao = new DAO();
 	
 	PreparedStatement psmt = null;
+	boolean result = false;
 
 	// 로그인
-	public boolean logIn() {
+	public String logIn() {
 
 		dao.conn();
 
 		String Checkpw = null;
 		String name = null;
 		ResultSet rs = null;
-		boolean result = false;
+
 
 		System.out.print("아이디 : ");
 		String id = sc.next();
@@ -31,7 +32,7 @@ public class AccountDAO {
 		String pw = sc.next();
 
 		try {
-
+			
 			String sql = "SELECT USER_PW, USER_NM FROM TB_USER WHERE USER_ID=?";
 			psmt = dao.conn.prepareStatement(sql);
 
@@ -44,7 +45,11 @@ public class AccountDAO {
 				Checkpw = rs.getString(1);
 				name = rs.getString(2);
 			}
-
+			
+			if (id != null) {
+				result = true;
+			}
+			
 			if (pw.equals(Checkpw)) {
 				result = true;
 				System.out.println();
@@ -64,12 +69,12 @@ public class AccountDAO {
 		} finally {
 			dao.dbClose();
 		}
-		return result;
+		return id;
 	}
 
 	
 	// 회원 가입
-	public void signIn() {
+public void signIn() {
 		
 		dao.conn();
 
@@ -131,6 +136,23 @@ public class AccountDAO {
 		}
 
 	}
+		
+		
+//		String sql2 = "INSERT INTO TB_SAVEP VALUES (?, ?)";
+//		try {
+//			dao.conn();
+//			psmt = dao.conn.prepareStatement(sql2);
+//			psmt.setString(1, id);
+//			psmt.setString(2, null);
+//
+//			psmt.executeUpdate();
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			dao.dbClose();
+//		}
+//
 
 	// 회원 정보 수정
 	public void updateUser() {
