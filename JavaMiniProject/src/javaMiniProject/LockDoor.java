@@ -23,8 +23,8 @@ public class LockDoor {
 		
 		Start str = new Start();
 
-		
-		
+		SBG sb = new SBG();
+		MainChoice mc = new MainChoice();
 		Scanner sc = new Scanner(System.in);
 		Chap0 c0 = new Chap0();
 
@@ -36,7 +36,7 @@ public class LockDoor {
 				int choice = sc.nextInt();
 				System.out.println();
 				if (choice == 1) {
-					c0.choo0();
+					
 				} else if (choice == 2) {
 					System.out.println("===== 문이 잠겨있다 =====");
 
@@ -58,7 +58,7 @@ public class LockDoor {
 								System.out.println(".");
 								} System.out.println();
 								System.out.println("아.. 맞다.. 지문..!");
-								SBG sbg = new SBG();
+								sb.sbg();
 								str.start();
 							}
 						} else {
