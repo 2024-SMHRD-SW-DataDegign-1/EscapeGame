@@ -38,7 +38,7 @@ public class Chap4 {
 				System.out.println("현명한 선택이다. 아무거나 주워 먹으면 큰일난다.\n");
 				System.out.println("말이 끝나기 무섭게 갑자기 모니터에서 이상한 목소리와 함께 문제가 출력되고 있었다.\n");
 				System.out.println("4번 문제 출력");
-				c0.choo0();
+				c0.choo0();	// 정식쓰가 말한... 게임 끝나면 다시 시작 메뉴로 가게 했슈
 				break;
 			}
 		}

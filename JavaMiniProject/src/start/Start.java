@@ -23,7 +23,7 @@ public class Start {
 		while (true) {
 			if (input == 1) {
 				System.out.println();
-				System.out.println("게임 시작 부분 입니다~~"+ "\n");
+				System.out.println("게임 시작 누르면 게임 기록 물어보는 부분입니다~"+ "\n");
 				rdao.record();	//게임 기록 물어보는 메소드
 				//c0.choo0(); //이건 바로 선택지 가게 해본 거.. 잠깐 테스트 해봤습니다
 				break;
