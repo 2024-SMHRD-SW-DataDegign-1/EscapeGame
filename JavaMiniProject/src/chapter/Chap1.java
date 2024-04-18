@@ -22,7 +22,7 @@ public class Chap1 {
 				if (answer == 666) {
 					// 정답일 경우 바로 첫번째 문제를 출력시킨다
 					System.out.println();
-					System.out.println("정답이다. 라고 생각한 순간 말이 끝나기 무섭게 첫번째 문제가 출력되고 있다.");
+					System.out.println("정답이다. 라고 생각한 순간 컴퓨터가 열렸다.");
 					System.out.println(" ");
 					System.out.println("1번 문제 출력"); // 그 후 1번 문제 메소드 불러오기 아님 문제 출력하던가
 					System.out.println("문제 다 풀면 그 부분 세이브포인트 변수에 담고... 다시 선택지 둘러보기?\n");
