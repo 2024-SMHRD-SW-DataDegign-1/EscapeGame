@@ -16,6 +16,7 @@ public class Main {
 
 		Account acc = new Account();
 		Start str = new Start();
+		
 		MainChoice mc = new MainChoice();
 		StartMain stM = new StartMain();
 
@@ -24,7 +25,6 @@ public class Main {
 		stM.gameStart(id);
 
 
-		
 
 	}
 

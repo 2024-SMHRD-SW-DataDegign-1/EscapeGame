@@ -14,7 +14,6 @@ public class LockDoor {
 
 	public void lockDoor(String id) {
 		
-		MainChoice mc = new MainChoice();
 
 		Random ran = new Random();
 		int reward1 = ran.nextInt(9) + 1;
@@ -28,7 +27,8 @@ public class LockDoor {
 		
 		Start str = new Start();
 
-
+		SBG sb = new SBG();
+		MainChoice mc = new MainChoice();
 		Scanner sc = new Scanner(System.in);
 		Chap0 c0 = new Chap0();
 
@@ -40,6 +40,7 @@ public class LockDoor {
 				int choice = sc.nextInt();
 				System.out.println();
 				if (choice == 1) {
+					
 					mc.searchClue(id);
 				} else if (choice == 2) {
 					System.out.println("===== 문이 잠겨있다 =====");
@@ -57,7 +58,12 @@ public class LockDoor {
 								arr[i - 1] = sc.nextInt();
 							}
 							if (reward1 == arr[0] && reward2 == arr[1] && reward3 == arr[2] && reward4 == arr[3]) {
-								System.out.println(" 엔딩 문구");
+								System.out.println(" 드디어 탈출이다 ! ! !");
+								for(int j = 0; j < 5; j++) {
+								System.out.println(".");
+								} System.out.println();
+								System.out.println("아.. 맞다.. 지문..!");
+								sb.sbg();
 								str.start();
 							}
 						} else {
