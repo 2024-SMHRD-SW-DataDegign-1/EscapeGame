@@ -26,9 +26,9 @@ public class Game2 {
 		System.out.println();
 		
 		System.out.println("'Number를 맞추라는 건가...'");
-		System.out.println();
 		
 		g2Ans.g2Ansewr();
+		System.out.println();
 			
 			
 			

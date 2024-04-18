@@ -7,6 +7,7 @@ public class StageMain {
 		Chap0 c0 = new Chap0();
 		
 		c0.choo0();
+
 	}
 
 }

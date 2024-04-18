@@ -12,6 +12,7 @@ public class Game1 {
 		System.out.println("일단 정답은 1이라 해봅시다");
 		
 		g1AnsC.g1AnswerC();
+		System.out.println();
 		 
 		
 		
