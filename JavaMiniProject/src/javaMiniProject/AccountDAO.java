@@ -13,7 +13,6 @@ public class AccountDAO {
 	Scanner sc = new Scanner(System.in);
 	DAO dao = new DAO();
 	
-	Connection conn = null;
 	PreparedStatement psmt = null;
 
 	// 로그인
@@ -85,7 +84,7 @@ public class AccountDAO {
 				System.out.print("아이디 : ");
 				id = sc.next();
 
-				psmt = conn.prepareStatement(sql);
+				psmt = dao.conn.prepareStatement(sql);
 				psmt.setString(1, id);
 
 				rs = psmt.executeQuery();
@@ -111,7 +110,7 @@ public class AccountDAO {
 		String sql = "INSERT INTO TB_USER VALUES(?, ?, ?)";
 
 		try {
-			psmt = conn.prepareStatement(sql);
+			psmt = dao.conn.prepareStatement(sql);
 			psmt.setString(1, name);
 			psmt.setString(2, id);
 			psmt.setString(3, pw);
@@ -153,7 +152,7 @@ public class AccountDAO {
 		int row = 0;
 		
 		try {
-			psmt = conn.prepareStatement(sql);
+			psmt = dao.conn.prepareStatement(sql);
 			psmt.setString(1, name);
 			psmt.setString(2, id);
 			psmt.setString(3, pw);
@@ -186,7 +185,7 @@ public class AccountDAO {
 		String sql = "DELETE FROM TB_USER WHERE USER_ID=?";
 
 		try {
-			psmt = conn.prepareStatement(sql);
+			psmt = dao.conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			int row = psmt.executeUpdate();
 
@@ -212,7 +211,7 @@ public class AccountDAO {
 		ResultSet rs = null;
 		String sql = "SELECT * FROM TB_USER";
 		try {
-			psmt = conn.prepareStatement(sql);
+			psmt = dao.conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 
 			System.out.println("이름\t" + "아이디\t" + "비밀번호");
