@@ -28,7 +28,6 @@ public class LockDoor {
 		
 		Start str = new Start();
 		
-		SBG sb = new SBG();
 		MainChoice mc = new MainChoice();
 		Scanner sc = new Scanner(System.in);
 		Chap0 c0 = new Chap0();

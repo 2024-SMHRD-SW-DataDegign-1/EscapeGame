@@ -5,16 +5,14 @@ import java.util.Scanner;
 public class Intro {
 
 	public static void main(String[] args) {
-		
+
 		Sleep slp = new Sleep();
 
 		System.out.print("================= 인트로 =================\r\n");
 
 		for (char c : "강의를 듣다 잠들었다. 눈을 떠보니 주변에는 아무도 없는 것을 알게 되었습니다.\r\n이상한 기분이 들었고, 강의실의 분위기가 어색하게 느껴집니다.\r\n"
 				.toCharArray()) {
-
 			System.out.print(c);
-
 			slp.sleep();
 		}
 
@@ -33,41 +31,30 @@ public class Intro {
 	}
 
 	public static void PressG(String str1, String str2) {
-		
+
 		Sleep slp = new Sleep();
-		
 		Scanner sc = new Scanner(System.in);
 
 		for (char c : str1.toCharArray()) {
 			System.out.print(c);
 			slp.sleep();
 		}
-
 		while (true) {
 			System.out.print(">> ");
-
 			String choice = sc.next();
-
 			if (choice.equals("g")) {
-
 				for (char c : str2.toCharArray()) {
-
 					System.out.print(c);
-
 					slp.sleep();
 				}
 				break;
 			} else {
 				for (char c : "\"키를 다시 입력해주세요\"".toCharArray()) {
-
 					System.out.print(c);
-
 					slp.sleep();
 				}
 			}
 		}
 	}
-
-	
 
 }
