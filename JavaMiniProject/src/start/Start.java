@@ -54,7 +54,7 @@ public class Start {
 					rs = psmt.executeQuery();
 
 					if (rs.next()) {
-						Checkpw = rs.getString(2);
+						Checkpw = rs.getString(1);
 
 						if (Pw.equals(Checkpw)) {
 
