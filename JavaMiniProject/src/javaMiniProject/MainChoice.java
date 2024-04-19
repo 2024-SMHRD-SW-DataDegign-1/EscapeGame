@@ -25,10 +25,10 @@ public class MainChoice {
 	public MainChoice() {
 		// HashMap 초기화 및 장소와 클래스 매핑
 		placeClassMap = new HashMap<>();
-		placeClassMap.put("칠판", Chap1.class);
-		placeClassMap.put("간식통", Chap2.class);
-		placeClassMap.put("내PC", Chap3.class);
-		placeClassMap.put("선생님PC", Chap4.class);
+		placeClassMap.put("선생님 PC", Chap1.class);
+		placeClassMap.put("내 PC", Chap2.class);
+		placeClassMap.put("간식통", Chap3.class);
+		placeClassMap.put("칠판", Chap4.class);
 		placeClassMap.put("뜬금없이놓여있는어항", Chap5.class);
 	}
 
