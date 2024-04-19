@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Intro {
 
-	public static void main(String[] args) {
+	public void Intro() {
 
 		Sleep slp = new Sleep();
 
