@@ -5,6 +5,12 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import chapter.Chap1;
+import chapter.Chap2;
+import chapter.Chap3;
+import chapter.Chap4;
+import chapter.Chap5;
+
 public class MainChoice {
 
 	public void searchClue(String id) {
@@ -54,7 +60,13 @@ public class MainChoice {
 			} finally {
 				dao.dbClose();
 			}
-
+			
+			Chap1 ch1 = new Chap1();
+			Chap2 ch2 = new Chap2();
+			Chap3 ch3 = new Chap3();
+			Chap4 ch4 = new Chap4();
+			Chap5 ch5 = new Chap5();
+			
 			while (true) {
 
 				// 선택지
@@ -65,25 +77,41 @@ public class MainChoice {
 					System.out.println("[" + (i + 1) + "]" + " " + al.get(i));
 				}
 				System.out.print(">> ");
-
-//							
-//							
-//							
-//							
-//							
-//							                              게임 메인 구역
-//							
-//							
-//							
-//							
-//							
-
-				// 정답 선택지 입력
-				int correct = sc.nextInt();
-
+				
+				int choice = sc.nextInt();
+				
+				int correctNum = 0;
+				
+				switch (choice) {
+				
+				case 1 :
+					correctNum = ch1.choo1();
+					break;
+					
+				case 2 :
+					correctNum = ch2.choo2();
+					break;
+					
+				case 3 :
+					correctNum = ch3.choo3();
+					break;
+					
+				case 4 :
+					correctNum = ch4.choo4();
+					break;
+					
+				case 5 :
+					ch5.choo5();
+					break;
+				}
+				
+				
+				
 				// 정답 선택지 삭제
-				al.remove(correct - 1);
-
+				if (correctNum!=0) {
+				al.remove(correctNum - 1);
+				}
+				
 				// 선택지 백업
 				cp = "";
 				for (int i = 0; i < al.size(); i++) {

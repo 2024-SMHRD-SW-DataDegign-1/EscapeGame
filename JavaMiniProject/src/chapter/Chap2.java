@@ -6,10 +6,11 @@ import game.Game2;
 
 public class Chap2 {
 
-	public void choo2() {
+	public int choo2() {
+		
+		int result = 0;
 
 		Scanner sc = new Scanner(System.in);
-		Chap0 c0 = new Chap0();
 		Game2 game2 = new Game2();
 		
 	
@@ -30,9 +31,9 @@ public class Chap2 {
 				System.out.println("'파지직...'");
 				// 셋 중 하나 랜덤으로 할 예정
 				System.out.println("해당 콘센트에 꽂으니 전원이 들어오며 부팅되자마자 내 PC 화면에 문제가 출력되고 있다.\n");
-				game2.g2();
+				if (game2.g2())
+					result = 2;
 				// 이 사이에 정답 체크 메소드 들어가고 정답 선택지 삭제 후 다시 둘러볼 곳 선택지 c0.choo0() 메소드 실행되게 할 거
-				c0.choo0();
 				break;
 
 			} else {
@@ -41,7 +42,7 @@ public class Chap2 {
 			
 		}
 
-		
+		return result;
 
 	}
 
