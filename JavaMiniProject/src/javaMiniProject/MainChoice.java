@@ -70,10 +70,10 @@ public class MainChoice {
 							al.add(value);
 						}
 					} else if (rs.getString(1) == (null)) {
-						al.add("칠판");
+						al.add("선생님 PC");
+						al.add("내 PC");
 						al.add("간식통");
-						al.add("내PC");
-						al.add("선생님PC");
+						al.add("칠판");
 						al.add("뜬금없이놓여있는어항");
 					}
 				}
