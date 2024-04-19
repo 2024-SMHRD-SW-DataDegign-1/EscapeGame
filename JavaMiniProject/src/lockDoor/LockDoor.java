@@ -59,12 +59,6 @@ public class LockDoor {
 								arr[i - 1] = sc.nextInt();
 							}
 							if (reward1 == arr[0] && reward2 == arr[1] && reward3 == arr[2] && reward4 == arr[3]) {
-								System.out.println(" 드디어 탈출이다 ! ! !");
-								for(int j = 0; j < 5; j++) {
-								System.out.println(".");
-								} System.out.println();
-								System.out.println("아.. 맞다.. 지문..!");
-								sb.sbg();
 								str.start();
 							}
 						} else {
