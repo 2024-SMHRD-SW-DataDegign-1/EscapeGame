@@ -2,7 +2,7 @@ package start;
 
 import java.util.Scanner;
 
-import javaMiniProject.LockDoor;
+import lockDoor.LockDoor;
 
 public class StartMain {
 

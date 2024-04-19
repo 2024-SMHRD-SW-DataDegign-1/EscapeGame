@@ -1,4 +1,4 @@
-package javaMiniProject;
+package lockDoor;
 
 public class SBG {
 	

@@ -1,4 +1,4 @@
-package javaMiniProject;
+package lockDoor;
 
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -7,6 +7,7 @@ import java.util.Scanner;
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 import chapter.Chap0;
+import javaMiniProject.MainChoice;
 import start.RecordDAO;
 import start.Start;
 
@@ -26,7 +27,7 @@ public class LockDoor {
 //		System.out.println(reward4);
 		
 		Start str = new Start();
-
+		
 		SBG sb = new SBG();
 		MainChoice mc = new MainChoice();
 		Scanner sc = new Scanner(System.in);
