@@ -14,6 +14,9 @@ import chapter.Chap3;
 import chapter.Chap4;
 import chapter.Chap5;
 import game.TheFinalProblem;
+import lockDoor.LockDoor;
+import lockDoor.RandomReward;
+import start.Start;
 
 public class MainChoice {
 
@@ -32,6 +35,8 @@ public class MainChoice {
 	public void searchClue(String id, int reward1, int reward2, int reward3, int reward4) {
 
 		Scanner sc = new Scanner(System.in);
+		
+		RandomReward rr = new RandomReward();
 
 		// 로그인 유저 아이디 저장
 
@@ -88,9 +93,14 @@ public class MainChoice {
 				for (int i = 0; i < al.size(); i++) {
 					System.out.println("[" + (i + 1) + "]" + " " + al.get(i));
 				}
+				System.out.print("[0] 돌아가기\r\n");
 				System.out.print(">> ");
 
 				choice = sc.nextInt();
+				if(choice == 0) {
+					rr.lockDoor2(id, reward1, reward2, reward3, reward4);
+				}
+				
 
 				String selectedPlace = al.get(choice - 1);
 				Class<?> selectedClass = placeClassMap.get(selectedPlace);
