@@ -9,11 +9,12 @@ public class Game3 {
 	Scanner sc = new Scanner(System.in);
 	AnswerCheck g3AnsC = new AnswerCheck();
 	Random rm = new Random();
+	AnswerCheck AnsC = new AnswerCheck();
 
-	public void g3() {
 		
-		System.out.println("이건 경남쌤과 배웠던 로또 번호 추첨 코드...?\n");
+	public boolean g3() {
 
+	System.out.println("이건 경남쌤과 배웠던 로또 번호 추첨 코드...?\n");
 //		int[] lotto = new int[5];
 //		System.out.println("====로또타임====");
 //		System.out.println("이번주 출력 번호는요...!!두구두구두구!!");
@@ -55,7 +56,10 @@ public class Game3 {
 				+ "(Arrays.(lotto));   (String(lotto));   (Arrays.toString(lotto));   (Arrays.toString());   (ToString(lotto));");
 
 		int answer = 3;
+		
+		boolean result = AnsC.AnswerC(answer);
 		System.out.println();
+		return result;
 
 	}
 }

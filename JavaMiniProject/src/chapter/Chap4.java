@@ -7,14 +7,12 @@ import start.Start;
 
 public class Chap4 {
 
-	public void choo4() {
-
+	public int choo4() {
+		Scanner sc = new Scanner(System.in);
+		Start str = new Start();
+		Game4 game4 = new Game4();
+		int result = 0;
 		while (true) {
-
-			Scanner sc = new Scanner(System.in);
-			Chap0 c0 = new Chap0();
-			Start str = new Start();
-			Game4 game4 = new Game4();
 
 			// if choose 4번선택지...
 			// 임시용 게임오버 표현 (변경 예정) 이걸 칠판으르 해서 지운다? 지우지 않는다 -> 지우지 않으면 게임 오버
@@ -48,13 +46,15 @@ public class Chap4 {
 			} else if (select == 2) {
 				System.out.println();
 				System.out.println("지우개로 칠판을 지우니 지워지지 않는 별이 있다.\n");
-				game4.g4();
+				if (game4.g4()) {
+					result = 4;
+				}
 				// System.out.println("4번 문제 출력");
-				c0.choo0(); // 정식쓰가 말한... 게임 끝나면 다시 시작 메뉴로 가게 했슈
+				// 정식쓰가 말한... 게임 끝나면 다시 시작 메뉴로 가게 했슈
 				break;
 			}
 		}
-
+		return result;
 	}
 
 }

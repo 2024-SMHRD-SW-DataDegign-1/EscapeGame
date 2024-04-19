@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Game4 {
 
 	Scanner sc = new Scanner(System.in);
-	AnswerCheck g4AnsC = new AnswerCheck();
+	AnswerCheck AnsC = new AnswerCheck();
 
-	public void g4() {
+	public boolean g4() {
 		
 		System.out.println();
 		System.out.println("for(int i = 0; i < 5; i++) {\r\n" + "	for(int j = 0; j < i ; j++) {\r\n"
@@ -30,8 +30,9 @@ public class Game4 {
 		
 		int answer = 2;
 
-		
+		boolean result = AnsC.AnswerC(answer);
 		System.out.println();
+		return result;
 
 	}
 

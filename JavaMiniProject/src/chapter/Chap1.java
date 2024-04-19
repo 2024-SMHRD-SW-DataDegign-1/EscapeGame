@@ -6,11 +6,13 @@ import game.Game1;
 
 public class Chap1 {
 
-	public void choo1() {
+	public int choo1() {
 
 		Scanner sc = new Scanner(System.in);
 		Chap0 c0 = new Chap0();
 		Game1 game1 = new Game1();
+
+		int result = 0;
 
 		while (true) {
 			// if choose 1번선택지...
@@ -18,7 +20,7 @@ public class Chap1 {
 			System.out.println("선생님의 컴퓨터로 갔으나 모니터는 비밀번호가 걸어져있다. 힌트도 있으며 내용은 다음과 같았다.\n");
 			System.out.println("악마의 숫자를 의미하는 3자리 수를 입력하라. 단 숫자는 전부 동일하다.");
 			// 정답 : 666
-			
+
 			System.out.println();
 
 			System.out.print("정답 입력 >> ");
@@ -29,8 +31,8 @@ public class Chap1 {
 				System.out.println();
 				System.out.println("정답이다. 라고 생각한 순간 컴퓨터가 열렸다.");
 				System.out.println(" ");
-				game1.g1();
-				c0.choo0();
+				if (game1.g1())
+					result = 1;
 				break;
 
 			} else {
@@ -38,6 +40,7 @@ public class Chap1 {
 
 			}
 		}
+		return result;
 	}
 
 }

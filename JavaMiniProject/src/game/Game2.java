@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Game2 {
 	
 	Scanner sc = new Scanner(System.in);
-	AnswerCheck g2Ans = new AnswerCheck();
+	AnswerCheck AnsC = new AnswerCheck();
 	
-	public void g2() {
+	public boolean g2() {
 		
 		System.out.println("컴퓨터 메모장에 증감연산자를 사용한 메모가 보인다.  \n");
 		
@@ -39,9 +39,9 @@ public class Game2 {
 		
 		int answer = 40;
 		
+		boolean result = AnsC.AnswerC(answer);
 		System.out.println();
-			
-			
+		return result;
 			
 			
 		}
