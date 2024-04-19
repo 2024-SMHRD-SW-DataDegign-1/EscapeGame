@@ -26,9 +26,9 @@ public class LockDoor {
 		Intro open = new Intro();
 		Ending end = new Ending();
 		Start str = new Start();
-		MainChoice mc = new MainChoice();
 		Chap0 c0 = new Chap0();
 		Sleep slp = new Sleep();
+		MainChoice mc = new MainChoice();
 		
 		Scanner sc = new Scanner(System.in);
 
@@ -41,9 +41,7 @@ public class LockDoor {
 				System.out.println("[3] 자신의 운명을 받아들인다.");
 				System.out.print("나의 선택은? >> ");
 				int choice = sc.nextInt();
-				System.out.println();
 				if (choice == 1) { // 수상한 곳 둘러보기
-					
 					mc.searchClue(id);
 				} else if (choice == 2) { // 잠긴문으로 가기
 					System.out.println("===== 문이 잠겨있다 =====");

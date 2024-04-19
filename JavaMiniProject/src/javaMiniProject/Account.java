@@ -14,7 +14,6 @@ public class Account {
 		while (true) {
 			System.out.println("이 게임이 처음이시라면?	>> [1] 회원가입");
 			System.out.println("회원가입이 되어있으시다면?	>> [2] 로그인");
-			System.out.println("종료하시겠습니까? 		>> [3] 종료");
 
 			try {
 				System.out.print(">> ");
@@ -31,10 +30,7 @@ public class Account {
 					} else {
 						continue;
 					}
-				} else if (choice == 3) {
-					gt.endGame();
-					break;
-				} else if (choice == 777) {
+				}  else if (choice == 777) {
 					System.out.println(" ");
 					System.out.println("관리자 페이지");
 
@@ -63,7 +59,7 @@ public class Account {
 					continue;
 				}
 			} catch (InputMismatchException e) {
-				System.out.println("비정상적인 접근입니다.");
+				System.out.println("비정상적인 접근입니다.\r\n");
 				sc.nextLine();
 				continue;
 			}

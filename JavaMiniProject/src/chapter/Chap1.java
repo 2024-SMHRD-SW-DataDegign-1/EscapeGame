@@ -3,6 +3,7 @@ package chapter;
 import java.util.Scanner;
 
 import game.Game1;
+import lockDoor.LockDoor;
 
 public class Chap1 {
 
@@ -33,6 +34,7 @@ public class Chap1 {
 				System.out.println(" ");
 				if (game1.g1())
 					result = 1;
+				
 				break;
 
 			} else {

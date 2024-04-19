@@ -71,7 +71,7 @@ public class MainChoice {
 
 				// 선택지
 				System.out.println("수상한 곳들이 있다..");
-				System.out.println("어디를 확인해볼까?");
+				System.out.println("어디를 확인해볼까?\r\n");
 
 				for (int i = 0; i < al.size(); i++) {
 					System.out.println("[" + (i + 1) + "]" + " " + al.get(i));
