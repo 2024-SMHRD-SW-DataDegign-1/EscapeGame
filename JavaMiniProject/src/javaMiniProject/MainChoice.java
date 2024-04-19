@@ -13,6 +13,7 @@ import chapter.Chap2;
 import chapter.Chap3;
 import chapter.Chap4;
 import chapter.Chap5;
+import game.TheFinalProblem;
 
 public class MainChoice {
 
@@ -110,7 +111,14 @@ public class MainChoice {
 
 			int correctNum = result;
 			
-			System.out.println(correctNum);
+			
+			TheFinalProblem fp = new TheFinalProblem();
+			
+			fp.finalP(correctNum, reward1, reward2, reward3, reward4);
+			
+			
+			
+			
 
 			// 정답 선택지 삭제
 			if (correctNum != 0) {
