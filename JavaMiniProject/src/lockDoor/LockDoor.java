@@ -8,7 +8,6 @@ import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 import chapter.Chap0;
 import javaMiniProject.MainChoice;
-import javaMiniProject.SBG;
 import start.RecordDAO;
 import start.Start;
 

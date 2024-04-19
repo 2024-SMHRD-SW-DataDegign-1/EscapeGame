@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Intro {
 
 	public static void main(String[] args) {
+		
+		Sleep slp = new Sleep();
 
 		System.out.print("================= 인트로 =================\r\n");
 
@@ -13,7 +15,7 @@ public class Intro {
 
 			System.out.print(c);
 
-			sleep();
+			slp.sleep();
 		}
 
 		PressG("\r\n[G키를 눌러주세요] \"느낌이 이상하다, 얼른 나가자!!\"\r\n ",
@@ -31,12 +33,14 @@ public class Intro {
 	}
 
 	public static void PressG(String str1, String str2) {
-
+		
+		Sleep slp = new Sleep();
+		
 		Scanner sc = new Scanner(System.in);
 
 		for (char c : str1.toCharArray()) {
 			System.out.print(c);
-			sleep();
+			slp.sleep();
 		}
 
 		while (true) {
@@ -50,7 +54,7 @@ public class Intro {
 
 					System.out.print(c);
 
-					sleep();
+					slp.sleep();
 				}
 				break;
 			} else {
@@ -58,19 +62,12 @@ public class Intro {
 
 					System.out.print(c);
 
-					sleep();
+					slp.sleep();
 				}
 			}
 		}
 	}
 
-	public static void sleep() {
-		try {
-			Thread.sleep(45); 
-
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+	
 
 }
