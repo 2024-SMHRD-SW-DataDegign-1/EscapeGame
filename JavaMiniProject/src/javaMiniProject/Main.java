@@ -13,9 +13,10 @@ public class Main {
 	public static void main(String[] args) {
 
 		Account acc = new Account();
+		String id = acc.account();
+		
 		StartMain stM = new StartMain();
 
-		String id = acc.account();
 		stM.gameStart(id);
 
 

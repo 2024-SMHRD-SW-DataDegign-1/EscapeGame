@@ -25,12 +25,10 @@ public class Account {
 					continue;
 				} else if (choice == 2) {
 					id = dao.logIn();
-					if (id!=null) {
+					if (id != "") {
 						break;
-					} else {
-						continue;
 					}
-				}  else if (choice == 777) {
+				} else if (choice == 777) {
 					System.out.println(" ");
 					System.out.println("관리자 페이지");
 
@@ -38,15 +36,14 @@ public class Account {
 						System.out.println("[1]회원 정보 조회  [2]회원 정보 수정 [3]회원 정보 삭제  [4]종료");
 						System.out.print(">> ");
 						int adminChoice = sc.nextInt();
-						
+
 						if (adminChoice == 1) {
 							dao.searchMembers();
 						} else if (adminChoice == 2) {
 							dao.updateUser();
 						} else if (adminChoice == 3) {
 							dao.deleteUser();
-						}
-						else {
+						} else {
 							System.out.println(" ");
 							break;
 						}
