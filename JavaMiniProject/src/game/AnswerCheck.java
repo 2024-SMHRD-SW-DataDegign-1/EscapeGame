@@ -2,16 +2,17 @@ package game;
 
 import java.util.Scanner;
 
-import javaMiniProject.LockDoor;
+
 import lock.LockPW;
 import lock.Test;
 
 public class AnswerCheck{
 
 	Scanner sc = new Scanner(System.in);
-	LockPW Lp = new LockPW();
+	//LockPW Lp = new LockPW();
 	//Test tt = new Test();
 	
+	// 리턴값은 맞춘 문제 번호 못 맞추면 0 리턴,,,, 매개변수로는 두 개( 문제 번호랑 정답)
 
 	public void g1AnswerC() {
 

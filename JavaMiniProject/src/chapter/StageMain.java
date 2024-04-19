@@ -1,6 +1,5 @@
 package chapter;
 
-import javaMiniProject.LockDoor;
 
 public class StageMain {
 
