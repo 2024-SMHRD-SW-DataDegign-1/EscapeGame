@@ -119,24 +119,17 @@ public class Start {
 
 						if (Pw.equals(Checkpw)) {
 
-							System.out.print("비밀번호 변경 : ");
-							String inputPw = sc.next();
-							System.out.print("이름 변경 : ");
-							String inputName = sc.next();
 
 							try {
 
-								int row = sdao.updateUser(inputPw, inputName, id);
-
+								int row = sdao.deleteUser(id);
 								if (row > 0) {
-									System.out.println("정보 수정이 완료되었습니다.\n");
-									System.out.println("현재 이름		: " + inputName);
-									System.out.println("현재 비밀번호	: " + inputPw);
+									System.out.println("탈퇴가 완료되었습니다.\n");
 									str.start();
-
 								} else {
-									System.out.println("수정 실패..");
+									System.out.println("탈퇴 실패..");
 								}
+								acc.account();
 							} catch (Exception e) {
 								e.printStackTrace();
 
@@ -156,20 +149,7 @@ public class Start {
 					dao.dbClose();
 				}
 
-				try {
-
-					int row = sdao.deleteUser(id);
-					if (row > 0) {
-						System.out.println("탈퇴가 완료되었습니다.\n");
-						str.start();
-					} else {
-						System.out.println("탈퇴 실패..");
-					}
-					acc.account();
-				} catch (Exception e) {
-					e.printStackTrace();
-
-				}
+				
 
 			} else if (input == 4) {
 				System.out.println();
