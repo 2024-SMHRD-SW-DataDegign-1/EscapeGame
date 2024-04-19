@@ -5,9 +5,9 @@ import java.util.Scanner;
 import game.Game1;
 import lockDoor.LockDoor;
 
-public class Chap1 {
+public class Chap1 extends Chap  {
 
-	public int choo1() {
+	public int performAction() {
 
 		Scanner sc = new Scanner(System.in);
 		Chap0 c0 = new Chap0();

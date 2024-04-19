@@ -23,11 +23,13 @@ public class Game4 {
 //				+ "	   *");
 		
 		System.out.println();
-		System.out.println("		?? 를 채우시오.");
+		System.out.println("		?? 를 채우시오.\n");
 		
+		System.out.println("[1]	[2]	[3]	[4]\r\n"
+				+ "++	--	-=	*=");
+		
+		int answer = 2;
 
-		int answer = 0;
-		
 		boolean result = AnsC.AnswerC(answer);
 		System.out.println();
 		return result;

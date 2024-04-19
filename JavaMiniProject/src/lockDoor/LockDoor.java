@@ -11,7 +11,6 @@ import start.Start;
 public class LockDoor {
 
 	public void lockDoor(String id) {
-		
 
 		Random ran = new Random();
 		int reward1 = ran.nextInt(9) + 1;
@@ -22,14 +21,14 @@ public class LockDoor {
 		System.out.println(reward2);
 		System.out.println(reward3);
 		System.out.println(reward4);
-		
+
 		Intro open = new Intro();
 		Ending end = new Ending();
 		Start str = new Start();
 		Chap0 c0 = new Chap0();
 		Sleep slp = new Sleep();
 		MainChoice mc = new MainChoice();
-		
+
 		Scanner sc = new Scanner(System.in);
 
 		open.Intro();
@@ -41,9 +40,12 @@ public class LockDoor {
 				System.out.println("[3] 자신의 운명을 받아들인다.");
 				System.out.print("나의 선택은? >> ");
 				int choice = sc.nextInt();
-				if (choice == 1) { // 수상한 곳 둘러보기
-					mc.searchClue(id);
-				} else if (choice == 2) { // 잠긴문으로 가기
+				if (choice == 1) {
+					mc.searchClue(id, reward1, reward2, reward3, reward4);
+
+				}
+
+				else if (choice == 2) {
 					System.out.println("===== 문이 잠겨있다 =====");
 
 					while (true) {
@@ -69,9 +71,9 @@ public class LockDoor {
 							break;
 						}
 					}
-				}  else {
+				} else {
 					// 게임포기
-					if(choice == 3) {
+					if (choice == 3) {
 						System.out.print("===== 게임 종료 =====\r\n");
 						str.start();
 					}
