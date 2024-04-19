@@ -78,7 +78,8 @@ public class MainChoice {
 			} finally {
 				dao.dbClose();
 			}
-
+			
+			int choice = 0;
 			while (true) {
 				// 선택지
 				System.out.println("수상한 곳들이 있다..");
@@ -89,7 +90,7 @@ public class MainChoice {
 				}
 				System.out.print(">> ");
 
-				int choice = sc.nextInt();
+				choice = sc.nextInt();
 
 				String selectedPlace = al.get(choice - 1);
 				Class<?> selectedClass = placeClassMap.get(selectedPlace);
@@ -108,21 +109,15 @@ public class MainChoice {
 					e.printStackTrace();
 				}
 			}
-
-			int correctNum = result;
 			
 			
 			TheFinalProblem fp = new TheFinalProblem();
 			
-			fp.finalP(correctNum, reward1, reward2, reward3, reward4);
-			
-			
-			
-			
+			fp.finalP(result, reward1, reward2, reward3, reward4);
 
 			// 정답 선택지 삭제
-			if (correctNum != 0) {
-				al.remove(correctNum - 1);
+			if (result != 0) {
+				al.remove(choice - 1);
 			}
 
 			// 선택지 백업
