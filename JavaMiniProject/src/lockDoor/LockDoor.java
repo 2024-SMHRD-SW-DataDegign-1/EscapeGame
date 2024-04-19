@@ -4,11 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-
 import chapter.Chap0;
 import javaMiniProject.MainChoice;
-import start.RecordDAO;
 import start.Start;
 
 public class LockDoor {
