@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class AnswerCheck {
 
 	Scanner sc = new Scanner(System.in);
+//	LockPw Lp =new LockPw();
 
 	public void g1AnswerC() {
 
