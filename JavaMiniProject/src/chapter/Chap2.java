@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 import game.Game2;
 
-public class Chap2 {
+public class Chap2 extends Chap {
 
-	public int choo2() {
+	public int performAction() {
 		
 		int result = 0;
 

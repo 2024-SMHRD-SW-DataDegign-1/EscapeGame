@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 import game.Game3;
 
-public class Chap3 {
+public class Chap3 extends Chap {
 
-	public int choo3() {
+	public int performAction() {
 		Scanner sc = new Scanner(System.in);
 		Game3 game3 = new Game3();
 

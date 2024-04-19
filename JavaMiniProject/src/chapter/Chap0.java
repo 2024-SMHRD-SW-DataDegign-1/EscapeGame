@@ -19,18 +19,6 @@ public class Chap0 {
 		int choose = sc.nextInt();
 		System.out.println();
 
-		if (choose == 1) {
-			c1.choo1();
-		} else if (choose == 2) {
-			c2.choo2();
-		} else if (choose == 3) {
-			c3.choo3();
-		} else if (choose == 4) {
-			c4.choo4();
-		} else if (choose == 5) {
-			c5.choo5();
-		}
-
 	}
 
 }

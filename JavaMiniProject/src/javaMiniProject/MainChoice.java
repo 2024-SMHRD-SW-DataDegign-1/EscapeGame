@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import java.util.HashMap;
+
+import chapter.Chap;
 import chapter.Chap1;
 import chapter.Chap2;
 import chapter.Chap3;
@@ -12,6 +15,18 @@ import chapter.Chap4;
 import chapter.Chap5;
 
 public class MainChoice {
+
+	private HashMap<String, Class<?>> placeClassMap;
+
+	public MainChoice() {
+		// HashMap 초기화 및 장소와 클래스 매핑
+		placeClassMap = new HashMap<>();
+		placeClassMap.put("칠판", Chap1.class);
+		placeClassMap.put("간식통", Chap2.class);
+		placeClassMap.put("내PC", Chap3.class);
+		placeClassMap.put("선생님PC", Chap4.class);
+		placeClassMap.put("뜬금없이놓여있는어항", Chap5.class);
+	}
 
 	public void searchClue(String id) {
 
@@ -24,9 +39,12 @@ public class MainChoice {
 		ArrayList<String> al = new ArrayList<String>();
 		String cp = "";
 		String tempstr = "";
+		int result = 0;
 
 		while (true) {
-
+			
+			al.clear();
+			
 			dao.conn();
 
 			ResultSet rs = null;
@@ -40,7 +58,6 @@ public class MainChoice {
 				rs = psmt.executeQuery();
 				if (rs.next()) {
 					if (rs.getString(1) != (null)) {
-						System.out.println("여기");
 						tempstr = rs.getString(1);
 						String[] splitValues = tempstr.split(",");
 						for (String value : splitValues) {
@@ -60,15 +77,8 @@ public class MainChoice {
 			} finally {
 				dao.dbClose();
 			}
-			
-			Chap1 ch1 = new Chap1();
-			Chap2 ch2 = new Chap2();
-			Chap3 ch3 = new Chap3();
-			Chap4 ch4 = new Chap4();
-			Chap5 ch5 = new Chap5();
-			
-			while (true) {
 
+			while (true) {
 				// 선택지
 				System.out.println("수상한 곳들이 있다..");
 				System.out.println("어디를 확인해볼까?");
@@ -77,63 +87,57 @@ public class MainChoice {
 					System.out.println("[" + (i + 1) + "]" + " " + al.get(i));
 				}
 				System.out.print(">> ");
-				
+
 				int choice = sc.nextInt();
-				
-				int correctNum = 0;
-				
-				switch (choice) {
-				
-				case 1 :
-					correctNum = ch1.choo1();
-					break;
-					
-				case 2 :
-					correctNum = ch2.choo2();
-					break;
-					
-				case 3 :
-					correctNum = ch3.choo3();
-					break;
-					
-				case 4 :
-					correctNum = ch4.choo4();
-					break;
-					
-				case 5 :
-					ch5.choo5();
-					break;
-				}
-				
-				
-				
-				// 정답 선택지 삭제
-				if (correctNum!=0) {
-				al.remove(correctNum - 1);
-				}
-				
-				// 선택지 백업
-				cp = "";
-				for (int i = 0; i < al.size(); i++) {
-					cp += al.get(i) + ",";
-				}
+
+				String selectedPlace = al.get(choice - 1);
+				Class<?> selectedClass = placeClassMap.get(selectedPlace);
 
 				try {
-					sql = "UPDATE TB_SAVEP SET USER_SP = ? WHERE USER_ID=?";
-					dao.conn();
+					// 해당 클래스의 인스턴스 생성
+					Chap chapInstance = (Chap) selectedClass.newInstance();
 
-					psmt = dao.conn.prepareStatement(sql);
+					// 선택한 장소의 기능 실행
+					result = chapInstance.performAction();
 
-					psmt.setString(1, cp);
-					psmt.setString(2, id);
+					break;
 
-					psmt.executeUpdate();
-
-				} catch (Exception e) {
+					// 결과에 따른 처리 등...
+				} catch (InstantiationException | IllegalAccessException e) {
 					e.printStackTrace();
-				} finally {
-					dao.dbClose();
 				}
+			}
+
+			int correctNum = result;
+			
+			System.out.println(correctNum);
+
+			// 정답 선택지 삭제
+			if (correctNum != 0) {
+				al.remove(correctNum - 1);
+			}
+
+			// 선택지 백업
+			cp = "";
+			for (int i = 0; i < al.size(); i++) {
+				cp += al.get(i) + ",";
+			}
+
+			try {
+				sql = "UPDATE TB_SAVEP SET USER_SP = ? WHERE USER_ID=?";
+				dao.conn();
+
+				psmt = dao.conn.prepareStatement(sql);
+
+				psmt.setString(1, cp);
+				psmt.setString(2, id);
+
+				psmt.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				dao.dbClose();
 			}
 		}
 	}

@@ -42,6 +42,7 @@ public class LockDoor {
 				if (choice == 1) {
 					
 					mc.searchClue(id);
+					
 				} else if (choice == 2) {
 					System.out.println("===== 문이 잠겨있다 =====");
 
