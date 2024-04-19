@@ -2,10 +2,16 @@ package game;
 
 import java.util.Scanner;
 
-public class AnswerCheck {
+import javaMiniProject.LockDoor;
+import lock.LockPW;
+import lock.Test;
+
+public class AnswerCheck{
 
 	Scanner sc = new Scanner(System.in);
-//	LockPw Lp =new LockPw();
+	LockPW Lp = new LockPW();
+	//Test tt = new Test();
+	
 
 	public void g1AnswerC() {
 
@@ -18,7 +24,6 @@ public class AnswerCheck {
 				System.out.println();
 				System.out.println(answer+ "는 정답이 맞습니다.");
 				System.out.println("하고 여기에 자물쇠 번호 받는 메소드 넣어야지..");
-				// 여기서 자물쇠 번호 1개 받는 메소드 사용하면 될 것 같은데..?
 				break;
 			} else if (answer != 1) {
 				System.out.println();
@@ -39,7 +44,8 @@ public class AnswerCheck {
 				System.out.println();
 				System.out.println(answer+ "는 정답이 맞습니다.");
 				System.out.println("하고 여기에 자물쇠 번호 받는 메소드 넣어야지..");
-				// 여기서 자물쇠 번호 1개 받는 메소드 사용하면 될 것 같은데..?
+				//System.out.println(reward1);
+				//Lp.Lpw2();
 				break;
 			} else if (answer != 42) {
 				System.out.println();
@@ -60,7 +66,7 @@ public class AnswerCheck {
 				System.out.println();
 				System.out.println(answer+ "는 정답이 맞습니다.");
 				System.out.println("하고 여기에 자물쇠 번호 받는 메소드 넣어야지..");
-				// 여기서 자물쇠 번호 1개 받는 메소드 사용하면 될 것 같은데..?
+				//Lp.Lpw3();
 				break;
 			} else if (answer != 3) {
 				System.out.println();
@@ -82,6 +88,9 @@ public class AnswerCheck {
 				System.out.println();
 				System.out.println(answer+ "는 정답이 맞습니다.");
 				System.out.println("하고 여기에 자물쇠 번호 받는 메소드 넣어야지..");
+				//Lp.Lpw4();
+				//Lp.LpAll();
+				//tt.test();
 				// 여기서 자물쇠 번호 1개 받는 메소드 사용하면 될 것 같은데..?
 				break;
 			} else if (!answer.equals("--")) {
