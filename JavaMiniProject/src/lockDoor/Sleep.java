@@ -4,7 +4,7 @@ public class Sleep {
 
 	public void sleep() {
 		try {
-			Thread.sleep(1);
+			Thread.sleep(45);
 
 		} catch (InterruptedException e) {
 			e.printStackTrace();
