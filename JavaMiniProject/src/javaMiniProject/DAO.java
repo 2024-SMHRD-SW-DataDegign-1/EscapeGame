@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DAO {
 	
-	Connection conn = null;
+	public Connection conn = null;
 	PreparedStatement psmt = null;
 	
 	// 연결

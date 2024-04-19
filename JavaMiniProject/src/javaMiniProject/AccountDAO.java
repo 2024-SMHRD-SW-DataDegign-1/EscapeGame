@@ -39,23 +39,19 @@ public class AccountDAO {
 			if (rs.next()) {
 				Checkpw = rs.getString(1);
 				name = rs.getString(2);
-			}
+				
+				if (pw.equals(Checkpw)) {
+					result = true;
+					System.out.println();
+					System.out.println("로그인에 성공했습니다.");
+					System.out.println(name + "님 환영합니다! \\(=▽=)/");
 
-			if (id != null) {
-				result = true;
-			}
-
-			if (pw.equals(Checkpw)) {
-				result = true;
-				System.out.println();
-				System.out.println("로그인에 성공했습니다.");
-				System.out.println(name + "님 환영합니다! \\(=▽=)/");
-
+				}
 			} else {
-				result = false;
+				id = "";
 				System.out.println("아이디 혹은 비밀번호가 다릅니다.");
 				System.out.println("");
-
+				
 			}
 
 		} catch (SQLException e) {
@@ -195,10 +191,13 @@ public class AccountDAO {
 
 		System.out.print("삭제할 ID 입력 : ");
 		String id = sc.next();
-
+		
+		String sql2 = "DELETE FROM TB_SAVEP WHERE USER_ID=?";
 		String sql = "DELETE FROM TB_USER WHERE USER_ID=?";
 
 		try {
+			psmt = dao.conn.prepareStatement(sql2);
+			psmt.setString(1, id);
 			psmt = dao.conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			int row = psmt.executeUpdate();

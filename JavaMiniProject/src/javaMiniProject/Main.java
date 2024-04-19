@@ -13,17 +13,13 @@ import start.StartMain;
 public class Main {
 
 	public static void main(String[] args) {
-		
-		
 
 		Account acc = new Account();
-		StartMain stM = new StartMain();
-		
 		String id = acc.account();
-		
+
+		StartMain stM = new StartMain();
+
 		stM.gameStart(id);
-
-
 
 	}
 
